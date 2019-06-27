@@ -26,8 +26,9 @@ namespace DemoLoggingHttpRequest.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<string> Post([FromBody] string value)
         {
+            return value;
         }
 
         // PUT api/values/5

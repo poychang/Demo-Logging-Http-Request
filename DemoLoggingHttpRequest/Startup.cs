@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using DemoLoggingHttpRequest.Middlewares;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +36,10 @@ namespace DemoLoggingHttpRequest
             }
 
             app.UseHttpsRedirection();
+
+            // 使用 LoggingMiddleware 中介程序，收集 HTTP Request 資訊
+            app.UseLoggingMiddleware();
+
             app.UseMvc();
         }
     }
